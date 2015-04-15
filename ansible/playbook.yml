@@ -26,10 +26,10 @@
       command: chown -R vagrant:vagrant /home/vagrant/
 
     - name: zpreztorc modified
-      command: sed -e "s/sorin/clint/g" /home/vagrant/.zpreztorc
+      command: sed -i -e "s/sorin/clint/g" /home/vagrant/.zpreztorc
     - name: zpreztorc modified
-      command: sed -e "s/emacs/vi/g" /home/vagrant/.zpreztorc
+      command: sed -i -e "s/emacs/vi/g" /home/vagrant/.zpreztorc
     - name: zprofile modified
-      command: sed -e "s/nano/vim/g" /home/vagrant/.zprofile
+      command: sed -i -e "s/nano/vim/g" /home/vagrant/.zprofile
 
 
