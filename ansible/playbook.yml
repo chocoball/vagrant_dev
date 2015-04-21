@@ -16,7 +16,7 @@
     - name: clone Prezto
       git: repo=https://github.com/sorin-ionescu/prezto.git dest=/home/vagrant/.zprezto
 
-    - name: change permission
+    - name: copy zsh setting files
       command: /bin/sh /vagrant/ansible/copy_zsh_setting_file.sh
 
     - name: default shell set to zsh
@@ -26,10 +26,6 @@
       command: chown -R vagrant:vagrant /home/vagrant/
 
     - name: zpreztorc modified
-      command: sed -i -e "s/sorin/clint/g" /home/vagrant/.zpreztorc
-    - name: zpreztorc modified
-      command: sed -i -e "s/emacs/vi/g" /home/vagrant/.zpreztorc
-    - name: zprofile modified
-      command: sed -i -e "s/nano/vim/g" /home/vagrant/.zprofile
+      command: /bin/sh /vagrant/ansible/modified_zsh_setting_files.sh
 
 
