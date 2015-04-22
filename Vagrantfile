@@ -9,12 +9,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu14.10"
   config.vm.network :private_network, ip: "192.168.33.100"
   config.vm.network :forwarded_port, id: "ssh", guest: 22, host: 2223
-  config.vm.synced_folder ".", "/vagrant", :mount_options => ['dmode=775', 'fmode=664']
   config.vm.hostname = "dev"
   config.vm.provision :shell, :path => "./provision.sh"
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", 1024]
+#    vb.gui = true
   end
 end
 

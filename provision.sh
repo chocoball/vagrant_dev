@@ -8,7 +8,12 @@ home=/home/vagrant
 # install apt package
 ###############################################################################
 apt-get update -y
-apt-get install -y git tmux zsh htop vim gcc make openssl libssl-dev libbz2-dev libreadline-dev libsqlite3-dev libffi-dev
+apt-get install -y git tmux zsh htop vim gcc make openssl libssl-dev
+apt-get install -y libbz2-dev libreadline-dev libsqlite3-dev libffi-dev
+apt-get install -y libcurl4-gnutls-dev libpng3 libjpeg-dev re2c libxml2-dev
+apt-get install -y libtidy-dev libxslt-dev libmcrypt-dev libssl-dev
+
+
 
 ###############################################################################
 # cloning prezto
@@ -26,11 +31,6 @@ do
         ln -s ${file} ${home}/.${file##*/}
     fi
 done
-
-###############################################################################
-# default shell set to zsh
-###############################################################################
-chsh -s /usr/bin/zsh vagrant
 
 ###############################################################################
 # copy configration files
@@ -96,6 +96,11 @@ if [ ! -d ${home}/.rbenv ]; then
 fi
 
 
+
+###############################################################################
+# default shell set to zsh
+###############################################################################
+chsh -s /usr/bin/zsh vagrant
 
 ###############################################################################
 # change owner to vagrant
