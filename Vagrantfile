@@ -12,4 +12,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder ".", "/vagrant", :mount_options => ['dmode=775', 'fmode=664']
   config.vm.hostname = "dev"
   config.vm.provision :shell, :path => "./provision.sh"
+
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", 1024]
+  end
 end
+
