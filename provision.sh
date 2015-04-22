@@ -98,6 +98,25 @@ fi
 
 
 ###############################################################################
+# get dropbox
+###############################################################################
+if [ ! -d ${home}/.dropbox-dist ]; then
+    cd ${home} && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+    echo execute ./dropbox-dist/dropboxd
+fi
+
+###############################################################################
+# get truecrypt
+###############################################################################
+if [ ! -f /tmp/truecrypt.tar.gz ]; then
+    cd ${home}
+    wget -O truecrypt.tar.gz "http://downloads.sourceforge.net/project/truecrypt/TrueCrypt/Other/TrueCrypt-7.2-Linux-console-x64.tar.gz?r=http%3A%2F%2Ftruecrypt.sourceforge.net%2FOtherPlatforms.html&ts=1429708695&use_mirror=cznic"
+    tar zxf truecrypt.tar.gz
+    rm -rf truecrypt.tar.gz
+    echo execute ./truecrypt-7.2-setup-console-x64
+fi
+
+###############################################################################
 # default shell set to zsh
 ###############################################################################
 chsh -s /usr/bin/zsh vagrant
